@@ -20,9 +20,3 @@
 1. Android Studio로 프로젝트 열기
 2. Firebase 설정 파일 (`google-services.json`)을 `/app` 폴더에 추가
 3. Gradle Sync → 앱 실행
-
-## 📁 주요 디렉토리
-- `app/src/main/java/.../activity/`: 액티비티 화면
-- `.../fragment/`: 프래그먼트 구조
-- `.../network/`: 서버 통신 (API 연동)
-- `.../model/`: 데이터 모델
