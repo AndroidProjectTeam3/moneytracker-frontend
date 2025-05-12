@@ -4,60 +4,154 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp">
+    android:padding="24dp"
+    android:background="#FFFFFF">
 
-    <ImageView
-        android:id="@+id/imageProfile"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/ic_launcher_foreground"
-        android:contentDescription="프로필 이미지"
-        android:scaleType="centerCrop"
-        android:background="@drawable/logo"
-        android:layout_marginTop="50dp"
+    <!-- 상단 헤더 -->
+    <LinearLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/logo"
+            android:contentDescription="로고"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="가계부 설정하기"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+
+    <!-- 구분선 -->
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#CCCCCC"
+        app:layout_constraintTop_toBottomOf="@id/headerLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <!-- 프로필 이미지 -->
+    <ImageView
+        android:id="@+id/imageProfile"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:scaleType="centerCrop"
+        android:background="@drawable/circle_gray_background"
+        app:layout_constraintTop_toBottomOf="@id/divider"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp" />
+
+    <!-- 이름 -->
+    <TextView
+        android:id="@+id/textName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이름:"
+        app:layout_constraintTop_toBottomOf="@id/imageProfile"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="24dp"/>
 
     <EditText
         android:id="@+id/editName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="이름"
-        app:layout_constraintTop_toBottomOf="@id/imageProfile"
-        app:layout_constraintStart_toStartOf="parent"
+        android:minHeight="48dp"
+        android:hint="홍길동"
+        app:layout_constraintTop_toTopOf="@id/textName"
+        app:layout_constraintBottom_toBottomOf="@id/textName"
+        app:layout_constraintStart_toEndOf="@id/textName"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp"/>
+        android:layout_marginStart="8dp"/>
+
+    <!-- 나이 -->
+    <TextView
+        android:id="@+id/textAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="나이:"
+        app:layout_constraintTop_toBottomOf="@id/editName"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"/>
 
     <EditText
         android:id="@+id/editAge"
-        android:layout_width="0dp"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:hint="나이"
         android:inputType="number"
-        app:layout_constraintTop_toBottomOf="@id/editName"
+        android:hint="0"
+        android:minHeight="48dp"
+        app:layout_constraintTop_toTopOf="@id/textAge"
+        app:layout_constraintBottom_toBottomOf="@id/textAge"
+        app:layout_constraintStart_toEndOf="@id/textAge"
+        android:layout_marginStart="8dp"/>
+
+    <TextView
+        android:id="@+id/textAgeUnit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="세"
+        app:layout_constraintTop_toTopOf="@id/editAge"
+        app:layout_constraintBottom_toBottomOf="@id/editAge"
+        app:layout_constraintStart_toEndOf="@id/editAge"
+        android:layout_marginStart="4dp"/>
+
+    <!-- 지출 한도 -->
+    <TextView
+        android:id="@+id/textLimit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="한 달 최대 지출 한도:"
+        app:layout_constraintTop_toBottomOf="@id/editAge"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"/>
 
     <EditText
         android:id="@+id/editLimit"
-        android:layout_width="0dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:hint="한달 최대 지출한도 (원)"
         android:inputType="number"
-        app:layout_constraintTop_toBottomOf="@id/editAge"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        android:minHeight="48dp"
+        android:hint="0"
+        app:layout_constraintTop_toTopOf="@id/textLimit"
+        app:layout_constraintBottom_toBottomOf="@id/textLimit"
+        app:layout_constraintStart_toEndOf="@id/textLimit"
+        android:layout_marginStart="8dp"/>
 
+    <TextView
+        android:id="@+id/textLimitUnit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="원"
+        app:layout_constraintTop_toTopOf="@id/editLimit"
+        app:layout_constraintBottom_toBottomOf="@id/editLimit"
+        app:layout_constraintStart_toEndOf="@id/editLimit"
+        android:layout_marginStart="4dp"/>
+
+    <!-- 저장 버튼 -->
     <Button
         android:id="@+id/btnSave"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="다음으로"
+        android:text="저장하기"
+        android:backgroundTint="#000000"
+        android:textColor="#FFFFFF"
         app:layout_constraintTop_toBottomOf="@id/editLimit"
+        android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="32dp"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

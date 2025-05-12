@@ -47,4 +47,5 @@ dependencies {
     implementation("com.google.firebase:firebase-auth-ktx") // ✅ Firebase 인증용
     implementation("com.google.android.gms:play-services-auth:21.0.0") // ✅ 구글 로그인용(Optional)
     implementation("com.squareup.okhttp3:okhttp:4.10.0")
+    implementation ("com.google.firebase:firebase-storage:20.3.0")
 }

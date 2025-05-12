@@ -35,9 +35,6 @@
         <!-- ✅ MainActivity 등록 (이제 홈 화면용으로 사용) -->
         <activity android:name=".MainActivity" />
 
-
-
-
     </application>
-
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
 </manifest>

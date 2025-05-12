@@ -1,14 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddTransactionFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#F4FFF9">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:padding="24dp"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <!-- 탭 전환 버튼 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="16dp">
+
+            <Button
+                android:id="@+id/buttonIncome"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="수입"
+                android:backgroundTint="#BBDEFB" />
+
+            <Button
+                android:id="@+id/buttonExpense"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="지출"
+                android:backgroundTint="#FFCDD2" />
+        </LinearLayout>
+
+        <!-- 날짜 -->
+        <EditText
+            android:id="@+id/editDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:hint="날짜 선택 (예: 2025-05-12)"
+            android:focusable="false"
+            android:clickable="true"
+            android:inputType="none"
+            android:layout_marginBottom="12dp" />
+
+        <!-- 카테고리 -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="카테고리 선택">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/dropdownCategory"
+                android:layout_width="match_parent"
+                android:minHeight="48dp"
+                android:layout_height="48dp"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <!-- 사용 금액 -->
+        <EditText
+            android:id="@+id/editAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="사용 금액"
+            android:minHeight="48dp"
+            android:inputType="number"
+            android:layout_marginBottom="12dp" />
+
+        <!-- 내용 -->
+        <EditText
+            android:id="@+id/editDescription"
+            android:layout_width="match_parent"
+            android:minHeight="48dp"
+            android:layout_height="wrap_content"
+            android:hint="내용"
+            android:layout_marginBottom="12dp" />
+
+        <!-- 기분 (이모지 선택) -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="기분"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/emotionToggleGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:singleSelection="true"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/emotionHappy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:minWidth="48dp"
+                android:padding="8dp"
+                android:text="😊기쁨"
+                style="@style/Widget.Material3.Button.TextButton"
+                app:cornerRadius="32dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/emotionLaugh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:minWidth="48dp"
+                android:padding="8dp"
+                android:text="😂행복함"
+                style="@style/Widget.Material3.Button.TextButton"
+                app:cornerRadius="32dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/emotionLove"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:minWidth="48dp"
+                android:padding="8dp"
+                android:text="🥰기분 최고"
+                style="@style/Widget.Material3.Button.TextButton"
+                app:cornerRadius="32dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/emotionShock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:minWidth="48dp"
+                android:padding="8dp"
+                android:text="😱힘듦"
+                style="@style/Widget.Material3.Button.TextButton"
+                app:cornerRadius="32dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/emotionSad"
+                android:layout_width="wrap_content"
+                android:minHeight="48dp"
+                android:minWidth="48dp"
+                android:padding="8dp"
+                android:layout_height="wrap_content"
+                android:text="😭슬픔"
+                style="@style/Widget.Material3.Button.TextButton"
+                app:cornerRadius="32dp" />
+
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+
+        <!-- 저장 버튼 -->
+        <Button
+            android:id="@+id/buttonSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="저장"
+            android:backgroundTint="#90CAF9"
+            android:textColor="#000000"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>
+</ScrollView>

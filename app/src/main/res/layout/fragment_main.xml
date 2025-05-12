@@ -3,38 +3,54 @@
     android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="#FFFFFF">
+    android:padding="24dp"
+    android:background="#EEFFF1"
+    android:gravity="center_horizontal">
 
-    <!-- 사용량 텍스트 -->
+    <!-- 월 사용량 텍스트 -->
     <TextView
         android:id="@+id/textUsage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="5월 현재 사용량: 0%"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="12dp" />
 
     <!-- 진행바 -->
     <ProgressBar
         android:id="@+id/progressUsage"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
+        android:layout_height="40dp"
         android:layout_marginBottom="24dp"
         android:max="100"
         android:progress="0"
-        android:progressTint="#4CAF50" />
+        android:progressTint="#00C853"
+        android:backgroundTint="#B2DFDB" />
 
     <!-- 캐릭터 이미지 -->
     <ImageView
         android:id="@+id/imageCharacter"
-        android:layout_width="290dp"
-        android:layout_height="353dp"
-        android:contentDescription="캐릭터 상태 이미지"
-        android:src="@drawable/character_poor" />
+        android:layout_width="250dp"
+        android:layout_height="300dp"
+        android:adjustViewBounds="true"
+        android:layout_marginBottom="24dp"
+        android:src="@drawable/character_poor"
+        android:contentDescription="캐릭터 상태"  />
+
+    <!-- 수입/지출 추가하기 버튼 -->
+    <Button
+        android:id="@+id/buttonAddTransaction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_button_bg"
+        android:backgroundTint="#F4A5AE"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="12dp"
+        android:text="수입/지출 추가하기"
+        android:textColor="#FFFFFF" />
 
 </LinearLayout>
